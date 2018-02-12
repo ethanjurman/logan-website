@@ -4,7 +4,7 @@ const html = Tram.html()
 module.exports = () => {
   return html`
     <h1>
-      tram-one-app
+      MaskAndMonsterWorks.com
     </h1>
   `
 }
