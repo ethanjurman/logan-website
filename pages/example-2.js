@@ -5,6 +5,11 @@ const html = Tram.html({
   Modal: require('../elements/Modal')
 })
 
+const linkStyle = `
+  cursor: pointer;
+  text-decoration: underline;
+`
+
 module.exports = (state, actions) => {
   return html`
     <div>
@@ -12,7 +17,7 @@ module.exports = (state, actions) => {
       <Header />
       <Modal state=${state} actions=${actions} />
       <div>
-        <button onclick=${actions.showModal}> this is a button </button>
+        Hi I'm Logan. Lorem ipsum click the link here: <a style=${linkStyle} onclick=${actions.toggleModal}> more info </a>
       </div>
     </div>
   `

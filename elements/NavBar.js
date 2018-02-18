@@ -34,6 +34,11 @@ module.exports = () => {
             <a class="nav-link" href="#">Costumes</a>
           </li>
         </ul>
+        <ul class="navbar-nav ">
+          <li class="nav-item">
+            <button type="button" class="btn  btn-outline-info ">Contact Me</button>
+          </li>
+        </ul>
       </div>
     </nav>
   </div>
