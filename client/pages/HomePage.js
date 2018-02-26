@@ -14,11 +14,10 @@ const largeBoxStyle = `
 module.exports = () => {
   return html`
     <div>
-      <NavBar />
+      <NavBar page="about"/>
       <Body>
         <Header />
         <Blurb />
-        <div style=${largeBoxStyle} />
       </Body>
     </div>
   `

@@ -2,10 +2,10 @@
   "name": "logan-website",
   "version": "1.0.0",
   "scripts": {
-    "start": "budo main.js:bundle.js --pushstate --dir public --live",
-    "prebuild": "cp -r public/ dist",
-    "build": "browserify ./main.js -o ./dist/bundle.js -t [ babelify --presets [ env ] ]",
-    "test": "jasmine ./specs/specs.js"
+    "start": "budo client/main.js:bundle.js --pushstate --dir client/public --live",
+    "prebuild": "cp -r client/public/ dist",
+    "build": "browserify ./client/main.js -o ./dist/bundle.js -t [ babelify --presets [ env ] ]",
+    "test": "jasmine ./client/specs/specs.js"
   },
   "keywords": [
     "tram-one"

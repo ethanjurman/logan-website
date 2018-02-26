@@ -11,7 +11,26 @@ const displaceTopNav = `
   margin-top: 4em;
 `
 
-module.exports = () => {
+isCurrentPage = (label, page) => {
+  return label === page;
+}
+
+renderNavItem = (
+  label,
+  currentPage,
+  hrefLink=`/images/${label.toLowerCase()}`
+) => {
+  const active = isCurrentPage(label.toLowerCase(), currentPage) ? "active" : "" ;
+  return html`
+    <li class="${active} nav-item">
+      <a class="nav-link" href=${hrefLink}>${label}</a>
+    </li>
+  `
+}
+
+module.exports = (props) => {
+  const {page} = props;
+
   return html`
   <div style=${displaceTopNav}>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style=${fixedTopStyle}>
@@ -21,18 +40,10 @@ module.exports = () => {
 
       <div class="collapse navbar-collapse" id="navbarColor02">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#about">About <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Sculptures</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Makeup</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Costumes</a>
-          </li>
+          ${renderNavItem('About', page, "/")}
+          ${renderNavItem('Sculptures', page)}
+          ${renderNavItem('Makeup', page)}
+          ${renderNavItem('Costumes', page)}
         </ul>
         <ul class="navbar-nav ">
           <li class="nav-item">
