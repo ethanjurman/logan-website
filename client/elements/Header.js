@@ -3,7 +3,7 @@ const html = Tram.html()
 
 module.exports = () => {
   return html`
-    <h1>
+    <h1 id="about">
       MaskAndMonsterWorks.com
     </h1>
   `

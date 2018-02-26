@@ -2,7 +2,8 @@ const Tram = require('tram-one')
 const html = Tram.html({
   Header: require('../elements/Header'),
   NavBar: require('../elements/Navbar'),
-  Blurb: require('../elements/Blurb')
+  Blurb: require('../elements/Blurb'),
+  Body: require('../elements/Body'),
 })
 
 const largeBoxStyle = `
@@ -14,9 +15,11 @@ module.exports = () => {
   return html`
     <div>
       <NavBar />
-      <Header />
-      <Blurb />
-      <div style=${largeBoxStyle} />
+      <Body>
+        <Header />
+        <Blurb />
+        <div style=${largeBoxStyle} />
+      </Body>
     </div>
   `
 }
