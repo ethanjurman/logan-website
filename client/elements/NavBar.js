@@ -1,5 +1,7 @@
 const Tram = require('tram-one')
-const html = Tram.html()
+const html = Tram.html({
+  NavItem: require('./NavItem')
+})
 
 const fixedTopStyle = `
   position: fixed;
@@ -10,23 +12,6 @@ const fixedTopStyle = `
 const displaceTopNav = `
   margin-top: 4em;
 `
-
-const isCurrentPage = (label, page) => {
-  return label === page
-}
-
-const renderNavItem = (
-  label,
-  currentPage,
-  hrefLink = `/images/${label.toLowerCase()}`
-) => {
-  const active = isCurrentPage(label.toLowerCase(), currentPage) ? 'active' : ''
-  return html`
-    <li class="${active} nav-item">
-      <a class="nav-link" href=${hrefLink}>${label}</a>
-    </li>
-  `
-}
 
 module.exports = (props) => {
   const {page} = props
@@ -40,10 +25,10 @@ module.exports = (props) => {
 
       <div class="collapse navbar-collapse" id="navbarColor02">
         <ul class="navbar-nav mr-auto">
-          ${renderNavItem('About', page, '/')}
-          ${renderNavItem('Sculptures', page)}
-          ${renderNavItem('Makeup', page)}
-          ${renderNavItem('Costumes', page)}
+          <NavItem label="About" href="/about" currentPage=${page} />
+          <NavItem label="Sculptures" href="/images/sculptures" currentPage=${page} />
+          <NavItem label="Makeup" href="/images/makeup" currentPage=${page} />
+          <NavItem label="Costumes" href="/images/costumes" currentPage=${page} />
         </ul>
         <ul class="navbar-nav ">
           <li class="nav-item">

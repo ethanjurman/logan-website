@@ -1,8 +1,11 @@
 const Tram = require('tram-one')
+const route = Tram.route()
 
 const app = new Tram()
-app.addRoute('/', require('./pages/HomePage'))
-app.addRoute('/images/:albumPage', require('./pages/ImageSetPage'))
+app.addRoute('/', require('./pages/Chrome'), [
+  route('about', require('./pages/HomePage')),
+  route('images/:albumPage', require('./pages/ImageSetPage')),
+  route('404', require('./pages/404'))
+])
 
-app.addRoute('/404', require('./pages/404'))
 app.start('.main')
