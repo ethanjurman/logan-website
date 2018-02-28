@@ -2,7 +2,9 @@
   "name": "logan-website",
   "version": "1.0.0",
   "scripts": {
-    "start": "budo client/main.js:bundle.js --pushstate --dir client/public --live",
+    "lint": "xo",
+    "start": "node server/main.js",
+    "dev": "budo client/main.js:bundle.js --pushstate --dir client/public --live",
     "prebuild": "cp -r client/public/ dist",
     "build": "browserify ./client/main.js -o ./dist/bundle.js -t [ babelify --presets [ env ] ]",
     "test": "jasmine ./client/specs/specs.js"
@@ -15,7 +17,20 @@
     "babelify": "^7.3.0",
     "browserify": "^14.4.0",
     "budo": "^10.0.4",
+    "eslint-config-tram-one": "^1.2.0",
+    "express": "^4.16.2",
+    "fb": "^2.0.0",
     "jasmine": "^2.8.0",
-    "tram-one": "^4.1.1"
+    "server": "^1.0.18",
+    "tram-one": "^4.1.1",
+    "xo": "^0.20.3"
+  },
+  "xo": {
+    "extends": [
+      "tram-one"
+    ],
+    "rules": {
+      "import/no-unresolved": false
+    }
   }
 }

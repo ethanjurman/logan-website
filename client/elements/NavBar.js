@@ -11,16 +11,16 @@ const displaceTopNav = `
   margin-top: 4em;
 `
 
-isCurrentPage = (label, page) => {
-  return label === page;
+const isCurrentPage = (label, page) => {
+  return label === page
 }
 
-renderNavItem = (
+const renderNavItem = (
   label,
   currentPage,
-  hrefLink=`/images/${label.toLowerCase()}`
+  hrefLink = `/images/${label.toLowerCase()}`
 ) => {
-  const active = isCurrentPage(label.toLowerCase(), currentPage) ? "active" : "" ;
+  const active = isCurrentPage(label.toLowerCase(), currentPage) ? 'active' : ''
   return html`
     <li class="${active} nav-item">
       <a class="nav-link" href=${hrefLink}>${label}</a>
@@ -29,7 +29,7 @@ renderNavItem = (
 }
 
 module.exports = (props) => {
-  const {page} = props;
+  const {page} = props
 
   return html`
   <div style=${displaceTopNav}>
@@ -40,7 +40,7 @@ module.exports = (props) => {
 
       <div class="collapse navbar-collapse" id="navbarColor02">
         <ul class="navbar-nav mr-auto">
-          ${renderNavItem('About', page, "/")}
+          ${renderNavItem('About', page, '/')}
           ${renderNavItem('Sculptures', page)}
           ${renderNavItem('Makeup', page)}
           ${renderNavItem('Costumes', page)}

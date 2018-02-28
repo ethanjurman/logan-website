@@ -3,13 +3,13 @@ const html = Tram.html({
   Header: require('../elements/Header'),
   NavBar: require('../elements/Navbar'),
   Blurb: require('../elements/Blurb'),
-  Body: require('../elements/Body'),
+  Body: require('../elements/Body')
 })
 
-const largeBoxStyle = `
-  height: 200%;
-  width: 100px;
-`
+// const largeBoxStyle = `
+//   height: 200%;
+//   width: 100px;
+// `
 
 module.exports = () => {
   return html`

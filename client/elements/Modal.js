@@ -4,8 +4,8 @@ const html = Tram.html({
 })
 
 module.exports = ({state, actions}) => {
-  const show = state.showModal ? 'show' : '';
-  const display = state.showModal ? 'block' : 'none';
+  const show = state.showModal ? 'show' : ''
+  const display = state.showModal ? 'block' : 'none'
   console.log(state, actions)
   return html`
   <div id="exampleModalLive" class="modal fade ${show}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLiveLabel" style="display: ${display}; padding-right: 17px;">
