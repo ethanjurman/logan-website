@@ -6,7 +6,6 @@ const html = Tram.html({
 })
 
 module.exports = (store, actions, params, subroute) => {
-  console.log(store, actions, params, subroute)
   const albumPage = params && params.albumPage
 
   return html`

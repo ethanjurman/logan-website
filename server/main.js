@@ -1,8 +1,10 @@
 const express = require('express')
+const cors = require('cors')
 const token = require('../access_tokens').fb
 const facebookService = require('./facebookService')
 
 const app = express()
+app.use(cors())
 
 app.get('/', (req, res) => res.send(`Logan's Website Server!`))
 app.get('/album/:album', (req, res) => {

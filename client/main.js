@@ -8,4 +8,6 @@ app.addRoute('/', require('./pages/Chrome'), [
   route('404', require('./pages/404'))
 ])
 
+app.addActions({albums: require('./actions/albums')})
+
 app.start('.main')
