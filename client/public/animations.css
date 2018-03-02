@@ -31,5 +31,7 @@
 }
 
 .dropShadowHover:hover {
-  box-shadow: black 0px 0px 100px;
+  box-shadow: black 0px 0px 100px, black 0px 0px 100px;
+
+  border-radius: 16px;
 }

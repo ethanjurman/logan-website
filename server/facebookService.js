@@ -7,12 +7,23 @@ const pageId = '346900572414287'
 const fetchAlbum = (token, album, callback, error) => {
   // these are the target height for the images
   const resolutions = {
-    225: 'thumbnail',
-    720: 'main'
+    thumbnail: 480,
+    main: 720
   }
 
-  const addResolutionToImage = (image, resolution) => {
-    return resolutions[resolution.height] ? Object.assign({}, image, {[resolutions[resolution.height]]: resolution.source}) : image
+  const getResolutionType = (height) => {
+    if (height > resolutions.main) {
+      return 'main'
+    }
+    if (height > resolutions.thumbnail) {
+      return 'thumbnail'
+    }
+    return false
+  }
+
+  const addResolutionToImage = (image, imageData) => {
+    const resType = getResolutionType(imageData.height)
+    return resType ? Object.assign({}, image, {[resType]: imageData.source}) : image
   }
 
   const responsePhotosToImages = (imageObject) => {

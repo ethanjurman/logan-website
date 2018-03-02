@@ -7,8 +7,15 @@ const imagesBlockStyle = `
   grid-area: images;
 `
 
-const getOrFetchAlbumDOM = (store, actions) => {
-  const albumId = 400055263765484
+const pageMap = {
+  masks: 400055263765484,
+  makeup: 400055263765484,
+  costumes: 400053603765650,
+  props: 400053603765650
+}
+
+const getOrFetchAlbumDOM = (store, actions, params) => {
+  const albumId = pageMap[params.albumPage]
   switch (store.albums.status) {
   case 'NOT_LOADED':
     actions.fetchAlbum(albumId)
@@ -26,10 +33,10 @@ const getOrFetchAlbumDOM = (store, actions) => {
   }
 }
 
-module.exports = (store, actions) => {
+module.exports = (store, actions, params) => {
   return html`
     <div style=${imagesBlockStyle}>
-      ${getOrFetchAlbumDOM(store, actions)}
+      ${getOrFetchAlbumDOM(store, actions, params)}
     </div>
   `
 }
