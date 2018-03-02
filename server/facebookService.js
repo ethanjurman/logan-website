@@ -12,10 +12,10 @@ const fetchAlbum = (token, album, callback, error) => {
   }
 
   const getResolutionType = (height) => {
-    if (height > resolutions.main) {
+    if (height >= resolutions.main) {
       return 'main'
     }
-    if (height > resolutions.thumbnail) {
+    if (height >= resolutions.thumbnail) {
       return 'thumbnail'
     }
     return false
