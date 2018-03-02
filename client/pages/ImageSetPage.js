@@ -3,6 +3,10 @@ const html = Tram.html({
   Image: require('../elements/Image')
 })
 
+const imagesBlockStyle = `
+  grid-area: images;
+`
+
 const getOrFetchAlbumDOM = (store, actions) => {
   const albumId = 400055263765484
   switch (store.albums.status) {
@@ -24,7 +28,7 @@ const getOrFetchAlbumDOM = (store, actions) => {
 
 module.exports = (store, actions) => {
   return html`
-    <div>
+    <div style=${imagesBlockStyle}>
       ${getOrFetchAlbumDOM(store, actions)}
     </div>
   `
