@@ -6,6 +6,7 @@ const buttonStyle = `
   cursor: pointer;
   width: 100%;
   margin: 4px;
+  font-size: 2em;
 `
 
 const isCurrentPage = (label, page) => {
