@@ -1,7 +1,7 @@
 module.exports = {
   init: () => ({album: null, status: 'NOT_LOADED'}),
   fetchAlbum: (state, id, actions) => {
-    fetch(`http://localhost:3000/album/${id}`)
+    fetch(`/getAlbum?album=${id}`)
       .then(data => data.json())
       .then((data) => {
         actions.setAlbum({data, id})

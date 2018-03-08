@@ -5,9 +5,11 @@
     "lint": "xo",
     "start": "node server/main.js",
     "dev": "budo client/main.js:bundle.js --pushstate --dir client/public --live",
-    "prebuild": "cp -r client/public/ dist",
-    "build": "browserify ./client/main.js -o ./dist/bundle.js -t [ babelify --presets [ env ] ]",
-    "test": "jasmine ./client/specs/specs.js"
+    "prebuild": "cp -r client/public/ client/dist",
+    "build": "browserify ./client/main.js -o ./client/dist/bundle.js -t [ babelify --presets [ env ] ]",
+    "test": "jasmine ./client/specs/specs.js",
+    "deploy": "firebase deploy",
+    "predeploy": "cp server/facebookService.js functions/ && cp access_tokens.json functions/ && npm run build"
   },
   "keywords": [
     "tram-one"
@@ -23,7 +25,7 @@
     "fb": "^2.0.0",
     "jasmine": "^2.8.0",
     "server": "^1.0.18",
-    "tram-one": "^4.1.1",
+    "tram-one": "^5.1.0",
     "xo": "^0.20.3"
   },
   "xo": {

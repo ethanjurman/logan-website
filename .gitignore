@@ -1,5 +1,5 @@
 # access token
-access_tokens.json
+**/access_tokens.json
 
 # Distributable
 dist
