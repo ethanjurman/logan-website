@@ -11,7 +11,7 @@ app.addRoute('/', require('./pages/Chrome'), [
 
 app.addActions({
   albums: require('./actions/albums'),
-  image: require('./actions/image'),
+  image: require('./actions/image')
 })
 
 app.start('.main')

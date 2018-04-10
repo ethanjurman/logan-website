@@ -1,4 +1,4 @@
 module.exports = {
   init: () => (null),
-  setAlbum: (state, id) => id,
+  setAlbum: (state, id) => id
 }

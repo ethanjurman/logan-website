@@ -9,12 +9,7 @@ const buttonStyle = `
   font-size: 2em;
 `
 
-const isCurrentPage = (label, page) => {
-  return label === page
-}
-
 module.exports = (attrs) => {
-  const active = isCurrentPage(attrs.label.toLowerCase(), attrs.currentPage) ? 'active' : ''
   const nav = () => window.history.pushState({}, '', attrs.href)
   return html`
     <button style=${buttonStyle} type="button" class="btn btn-primary">
