@@ -9,7 +9,13 @@ const cropStyle = `
 `
 
 module.exports = (attrs) => {
+  const {imageData: {id}, albumPage} = attrs;
+
+  const openImage = () => {
+    window.history.pushState({}, '', `/images/${albumPage}/${id}`)
+  }
+  
   return html`
-    <img classname="dropShadowHover grow" style=${cropStyle} src=${attrs.src} />
+    <img classname="dropShadowHover grow" onclick=${openImage} style=${cropStyle} src=${attrs.src} />
   `
 }

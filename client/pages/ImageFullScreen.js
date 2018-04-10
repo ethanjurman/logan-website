@@ -14,8 +14,10 @@ const pageMap = {
   props: 430251717412505
 }
 
-const getOrFetchAlbumDOM = (store, actions, params) => {
-  const albumId = pageMap[params.albumPage]
+const getImageData = (store, actions, params) => {
+  const {imageId, albumPage} = params;
+  const albumId = pageMap[albumPage]
+  
   switch (store.albums.status) {
   case 'NOT_LOADED':
     actions.fetchAlbum(albumId)
@@ -27,16 +29,22 @@ const getOrFetchAlbumDOM = (store, actions, params) => {
       actions.fetchAlbum(albumId)
       return 'fetching...'
     }
-    return store.albums.album.map(image => html`<Image imageData=${image} albumPage=${params.albumPage} src=${image.thumbnail} />`)
+    return store.albums.album.filter(image => image.id === imageId)[0]
   default:
     return 'Error...'
   }
 }
 
 module.exports = (store, actions, params) => {
+  const goToAlbum = () => {
+    window.history.pushState({}, '', `/images/${params.albumPage}`)
+  }
+
+  const imageData = getImageData(store, actions, params);
+
   return html`
-    <div style=${imagesBlockStyle}>
-      ${getOrFetchAlbumDOM(store, actions, params)}
+    <div style=${imagesBlockStyle} >
+      <img src=${imageData.main} onclick=${goToAlbum} />
     </div>
   `
 }
