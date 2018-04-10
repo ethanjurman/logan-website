@@ -21,16 +21,17 @@ const fetchAlbum = (token, album, callback, error) => {
     return false
   }
 
-  const addResolutionToImage = (image, imageData) => {
-    const resType = getResolutionType(imageData.height)
+  const addResolutionToImage = (image, imageData, index, images, type) => {
+    const resType = type || getResolutionType(imageData.height)
     return resType ? Object.assign({}, image, {[resType]: imageData.source}) : image
   }
 
   const responsePhotosToImages = (imageObject) => {
-    const finalObject = imageObject
+    const collectionObject = imageObject
       .images
       .reduce(addResolutionToImage, {id: imageObject.id})
-    return finalObject
+    const collectionWithBackup = addResolutionToImage(collectionObject, imageObject.images[0], 0, 0, 'default')
+    return collectionWithBackup
   }
 
   const handleResponse = (response) => {

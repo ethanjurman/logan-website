@@ -27,7 +27,8 @@ const getOrFetchAlbumDOM = (store, actions, params) => {
       actions.fetchAlbum(albumId)
       return 'fetching...'
     }
-    return store.albums.album.map(image => html`<Image src=${image.thumbnail} />`)
+    const imageSrc = image => image.thumbnail ? image.thumbnail : image.default
+    return store.albums.album.map(image => html`<Image src=${imageSrc(image)} />`)
   default:
     return 'Error...'
   }
