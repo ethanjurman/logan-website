@@ -1,15 +1,16 @@
+const path = require('path')
 const express = require('express')
-const cors = require('cors')
-const token = require('../access_tokens').fb
-const facebookService = require('./facebookService')
+const token = require('../functions/access_tokens').fb
+const facebookService = require('../functions/facebookService')
 
 const app = express()
-app.use(cors())
+app.use(express.static(path.join(__dirname, '../client/dist')))
 
-app.get('/', (req, res) => res.send(`Logan's Website Server!`))
-app.get('/album/:album', (req, res) => {
-  facebookService.fetchAlbum(token, req.params.album, response => res.send(response), error => res.send(error))
+app.get('/getAlbum', (req, res) => {
+  facebookService.fetchAlbum(token, req.query.album, response => res.send(response), error => res.send(error))
 })
+
+app.use((req, res) => res.sendFile(path.join(__dirname, '../client/dist/index.html')))
 
 const port = 3000
 app.listen(port, () => console.log(`Logan's Website Server Running on Port ${port}`))
