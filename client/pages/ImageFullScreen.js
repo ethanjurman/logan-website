@@ -15,9 +15,9 @@ const pageMap = {
 }
 
 const getImageData = (store, actions, params) => {
-  const {imageId, albumPage} = params;
+  const {imageId, albumPage} = params
   const albumId = pageMap[albumPage]
-  
+
   switch (store.albums.status) {
   case 'NOT_LOADED':
     actions.fetchAlbum(albumId)
@@ -40,11 +40,11 @@ module.exports = (store, actions, params) => {
     window.history.pushState({}, '', `/images/${params.albumPage}`)
   }
 
-  const imageData = getImageData(store, actions, params);
+  const imageData = getImageData(store, actions, params)
 
   return html`
     <div style=${imagesBlockStyle} >
-      <img src=${imageData.main} onclick=${goToAlbum} />
+      <img src=${imageData.full} onclick=${goToAlbum} />
     </div>
   `
 }

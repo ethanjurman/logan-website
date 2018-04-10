@@ -8,12 +8,12 @@ const fetchAlbum = (token, album, callback, error) => {
   // these are the target height for the images
   const resolutions = {
     thumbnail: 480,
-    main: 720
+    full: 720
   }
 
   const getResolutionType = (height) => {
-    if (height >= resolutions.main) {
-      return 'main'
+    if (height >= resolutions.full) {
+      return 'full'
     }
     if (height >= resolutions.thumbnail) {
       return 'thumbnail'
@@ -27,11 +27,12 @@ const fetchAlbum = (token, album, callback, error) => {
   }
 
   const responsePhotosToImages = (imageObject) => {
+    const collectionWithThumbnail = addResolutionToImage({}, imageObject.images[0], 0, 0, 'thumbnail')
+    const collectionWithFull = addResolutionToImage({}, imageObject.images[0], 0, 0, 'full')
     const collectionObject = imageObject
       .images
       .reduce(addResolutionToImage, {id: imageObject.id})
-    const collectionWithBackup = addResolutionToImage(collectionObject, imageObject.images[0], 0, 0, 'default')
-    return collectionWithBackup
+    return Object.assign({}, collectionWithFull, collectionWithThumbnail, collectionObject)
   }
 
   const handleResponse = (response) => {

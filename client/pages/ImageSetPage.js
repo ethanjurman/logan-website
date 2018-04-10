@@ -16,7 +16,6 @@ const pageMap = {
 
 const getOrFetchAlbumDOM = (store, actions, params) => {
   const albumId = pageMap[params.albumPage]
-  const imageSrc = image => image.thumbnail ? image.thumbnail : image.default
   switch (store.albums.status) {
   case 'NOT_LOADED':
     actions.fetchAlbum(albumId)
@@ -28,7 +27,7 @@ const getOrFetchAlbumDOM = (store, actions, params) => {
       actions.fetchAlbum(albumId)
       return 'fetching...'
     }
-    return store.albums.album.map(image => html`<Image imageData=${image} albumPage=${params.albumPage} src=${imageSrc(image)} />`)
+    return store.albums.album.map(image => html`<Image imageData=${image} albumPage=${params.albumPage} src=${image.thumbnail} />`)
   default:
     return 'Error...'
   }
