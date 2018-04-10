@@ -1,7 +1,7 @@
 const Tram = require('tram-one')
 const html = Tram.html({
   NavButtonItem: require('./NavButtonItem'),
-  Blurb: require('./Blurb'),
+  Blurb: require('./Blurb')
 })
 
 const navBlockStyle = `

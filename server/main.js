@@ -13,4 +13,4 @@ app.get('/getAlbum', (req, res) => {
 app.use((req, res) => res.sendFile(path.join(__dirname, '../client/dist/index.html')))
 
 const port = 3000
-app.listen(port, () => console.log(`Logan's Website Server Running on Port ${port}`))
+app.listen(port, () => console.log(`Logan's Website Server Running! \nNavigate to http://localhost:${port}`))
