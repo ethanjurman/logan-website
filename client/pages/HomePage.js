@@ -1,6 +1,5 @@
 const Tram = require('tram-one')
 const html = Tram.html({
-  Blurb: require('../elements/Blurb')
 })
 
 // const largeBoxStyle = `

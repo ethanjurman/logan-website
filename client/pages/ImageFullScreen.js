@@ -1,6 +1,7 @@
 const Tram = require('tram-one')
 const html = Tram.html({
-  Image: require('../elements/Image')
+  Image: require('../elements/Image'),
+  Modal: require('../elements/Modal')
 })
 
 const imagesBlockStyle = `
@@ -48,7 +49,9 @@ module.exports = (store, actions, params) => {
 
   return html`
     <div style=${imagesBlockStyle} >
-      <img id="full" style=${imageStyle} src=${imageData.full} onclick=${goToAlbum} />
+      <!-- <Modal> -->
+        <img id="full" style=${imageStyle} src=${imageData.full} onclick=${goToAlbum} />
+      <!-- </Modal> -->
     </div>
   `
 }

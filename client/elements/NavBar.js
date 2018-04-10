@@ -1,42 +1,25 @@
 const Tram = require('tram-one')
 const html = Tram.html({
-  NavItem: require('./NavItem')
+  NavLink: require('./NavLink')
 })
 
-const fixedTopStyle = `
-  position: fixed;
-  top: 0px;
-  width: 100%;
+const navGrid = `
+  display: flex;
+  flex-wrap: no wrap;
+  margin-bottom: 0.8em;
 `
 
-const displaceTopNav = `
-  margin-top: 4em;
+const linkStyle = `
+  padding: 0.4em 0.8em 0em 0.0em;
 `
 
-module.exports = (props) => {
-  const {page} = props
-
+module.exports = (attrs) => {
   return html`
-  <div style=${displaceTopNav}>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style=${fixedTopStyle}>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarColor02">
-        <ul class="navbar-nav mr-auto">
-          <NavItem label="About" href="/about" currentPage=${page} />
-          <NavItem label="Sculptures" href="/images/sculptures" currentPage=${page} />
-          <NavItem label="Makeup" href="/images/makeup" currentPage=${page} />
-          <NavItem label="Costumes" href="/images/costumes" currentPage=${page} />
-        </ul>
-        <ul class="navbar-nav ">
-          <li class="nav-item">
-            <button type="button" class="btn  btn-outline-info ">Contact Me</button>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </div>
+    <div style="${navGrid}${attrs.style}">
+      <NavLink style=${linkStyle} href="/images/masks">Masks</NavLink>
+      <NavLink style=${linkStyle} href="/images/makeup">Makeup</NavLink>
+      <NavLink style=${linkStyle} href="/images/costumes">Costumes</NavLink>
+      <NavLink style=${linkStyle} href="/images/props">Props</NavLink>
+    </div>
   `
 }
