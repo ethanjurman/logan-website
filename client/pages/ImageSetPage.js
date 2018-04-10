@@ -8,10 +8,10 @@ const imagesBlockStyle = `
 `
 
 const pageMap = {
-  masks: 400055263765484,
-  makeup: 400055263765484,
-  costumes: 400053603765650,
-  props: 400053603765650
+  masks: 430250844079259,
+  makeup: 430249887412688,
+  costumes: 430249267412750,
+  props: 430251717412505
 }
 
 const getOrFetchAlbumDOM = (store, actions, params) => {
