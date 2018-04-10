@@ -7,6 +7,10 @@ const imagesBlockStyle = `
   grid-area: images;
 `
 
+const imageStyle = `
+  max-width: 100%;
+`
+
 const pageMap = {
   masks: 430250844079259,
   makeup: 430249887412688,
@@ -44,7 +48,7 @@ module.exports = (store, actions, params) => {
 
   return html`
     <div style=${imagesBlockStyle} >
-      <img src=${imageData.full} onclick=${goToAlbum} />
+      <img id="full" style=${imageStyle} src=${imageData.full} onclick=${goToAlbum} />
     </div>
   `
 }
