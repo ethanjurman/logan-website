@@ -10,7 +10,7 @@
     "build": "browserify ./client/main.js -o ./client/dist/bundle.js -t [ babelify --presets [ env ] ]",
     "test": "jasmine ./client/specs/specs.js",
     "deploy": "firebase deploy",
-    "predeploy": "cp access_tokens.json functions/ && npm run build"
+    "predeploy": "npm run build"
   },
   "keywords": [
     "tram-one"
