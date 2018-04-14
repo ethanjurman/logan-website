@@ -1,7 +1,6 @@
 const Tram = require('tram-one')
 const html = Tram.html({
-  Header: require('../elements/Header'),
-  NavSideBar: require('../elements/NavSideBar')
+  Header: require('../elements/Header')
 })
 
 const pageStyle = `

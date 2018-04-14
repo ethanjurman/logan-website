@@ -38,8 +38,8 @@ const fetchAlbum = (token, album, callback, error) => {
   const handleResponse = (response) => {
     const album = JSON.parse(response[0].body)
     const photos = JSON.parse(response[1].body)
-    if (!response || response.error) {
-      return error(response)
+    if (!response || response.error || response[0].code !== 200 || response[1].code !== 200) {
+      return error('Error: Failed to parse Facebook data')
     }
     if (album.from.id !== pageId) {
       return error({error: 'album owner id did not match expected value'})
