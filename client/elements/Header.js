@@ -44,11 +44,13 @@ module.exports = (attrs) => {
     <div style="${containerGrid}${attrs.style}">
       <img style=${imageStyle} src="/mask_image.png" />
       <h1 style=${headerStyle}>
-        Mask & Monster Works
+        The Eiferer's Armory
       </h1>
       <NavBar style=${linksStyle} />
       <p style=${blurbStyle}>
-        Greetings, I’m Logan! There’s little I enjoy more than creating masks, costumes, props, and good old fashioned monsters! What you’ll see here is just a small sample of my ever-growing collection.
+        Greetings, I’m Logan! There’s little I enjoy more than creating masks,
+        costumes, props, and good old fashioned monsters! What you’ll see here
+        is just a small sample of my ever-growing collection.
       </p>
     </h1>
   `
