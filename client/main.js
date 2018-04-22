@@ -12,4 +12,5 @@ app.addActions({
   image: require('./actions/image')
 })
 
+document.querySelector('.main').innerHTML = ''
 app.start('.main')
