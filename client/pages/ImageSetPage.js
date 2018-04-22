@@ -1,6 +1,7 @@
 const Tram = require('tram-one')
 const html = Tram.html({
-  Image: require('../elements/Image')
+  Image: require('../elements/Image'),
+  ModalImage: require('../elements/ModalImage'),
 })
 
 const imagesBlockStyle = `
@@ -36,10 +37,47 @@ const getOrFetchAlbumDOM = (store, actions, params) => {
   }
 }
 
+const getOrFetchModalImage = (store, actions, params) => {
+  const {imageId, albumPage} = params
+  const albumId = pageMap[albumPage]
+
+  if (!imageId) {
+    return null
+  }
+
+  switch (store.albums.status) {
+  case 'NOT_LOADED':
+    actions.fetchAlbum(albumId)
+    return 'fetching...'
+  case 'LOADING':
+    return 'loading...'
+  case 'LOADED':
+    if (store.albums.id !== albumId) {
+      actions.fetchAlbum(albumId)
+      return 'fetching...'
+    }
+    const imageData = store.albums.album.find(image => image.id === imageId)
+    return html`
+      <ModalImage 
+        imageData=${imageData}
+        albumPage=${params.albumPage}
+        src=${imageData.full}
+      />
+    `
+  default:
+    return 'Error...'
+  }
+}
+
 module.exports = (store, actions, params) => {
+  let modalImage = null;
+  if (params.imageId) {
+    modalImage = html`<ModalImage id=${params.imageId} albumPage=${params.albumPage} />`
+  }
   return html`
     <div style=${imagesBlockStyle}>
       ${getOrFetchAlbumDOM(store, actions, params)}
+      ${getOrFetchModalImage(store, actions, params)}
     </div>
   `
 }

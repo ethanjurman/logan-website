@@ -42,7 +42,7 @@ module.exports = (attrs) => {
   const goToHome = () => window.history.pushState({}, '', '/')
   return html`
     <div style="${containerGrid}${attrs.style}">
-      <img style=${imageStyle} className="navMask" src="/mask_image.png" onclick=${goToHome} />
+      <img style=${imageStyle} class="navMask" src="/mask_image.png" onclick=${goToHome} />
       <h1 style=${headerStyle}>
         The Eiferer's Armory
       </h1>

@@ -4,7 +4,7 @@ const route = Tram.route()
 const app = new Tram({defaultRoute: '/'})
 app.addRoute('/', require('./pages/Chrome'), [
   route('/images/:albumPage', require('./pages/ImageSetPage')),
-  route('/images/:albumPage/:imageId', require('./pages/ImageFullScreen'))
+  route('/images/:albumPage/:imageId', require('./pages/ImageSetPage'))
 ])
 
 app.addActions({

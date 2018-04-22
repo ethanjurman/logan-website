@@ -9,6 +9,6 @@ module.exports = (attrs) => {
   }
 
   return html`
-    <img classname="galleryImage dropShadowHover grow" onclick=${openImage} src=${attrs.src} />
+    <img class="galleryImage dropShadowHover grow" onclick=${openImage} src=${attrs.src} />
   `
 }
