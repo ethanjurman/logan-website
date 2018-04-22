@@ -5,12 +5,9 @@ const html = Tram.html({
 
 const containerGrid = `
   font-size: 1.8em;
-  padding-left: 1rem;
-  max-width: 860px;
   display: grid;
-  grid-template-columns: 6em auto;
+  grid-template-columns: 4em auto;
   grid-template-rows: 2em auto;
-  grid-column-gap: 0.75em;
   grid-template-areas:
     "logo header"
     "logo links"
@@ -21,6 +18,7 @@ const headerStyle = `
   grid-area: header;
   font-size: 2em;
   margin: 0;
+  white-space: nowrap;
 `
 
 const linksStyle = `

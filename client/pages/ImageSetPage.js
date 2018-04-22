@@ -4,7 +4,7 @@ const html = Tram.html({
 })
 
 const imagesBlockStyle = `
-  grid-area: images;
+  text-align: center;
 `
 
 const pageMap = {
