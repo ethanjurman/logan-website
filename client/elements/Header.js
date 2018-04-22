@@ -18,6 +18,7 @@ const headerStyle = `
   grid-area: header;
   font-size: 2em;
   margin: 0;
+  cursor: pointer;
 `
 
 const linksStyle = `
@@ -43,7 +44,7 @@ module.exports = (attrs) => {
   return html`
     <div style="${containerGrid}${attrs.style}">
       <img style=${imageStyle} class="navMask" src="/mask_image.png" onclick=${goToHome} />
-      <h1 style=${headerStyle}>
+      <h1 style=${headerStyle} onclick=${goToHome}>
         The Eiferer's Armory
       </h1>
       <NavBar style=${linksStyle} />
