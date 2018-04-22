@@ -2,9 +2,19 @@ const Tram = require('tram-one')
 const html = Tram.html()
 
 const imageStyle = `
-  max-width: 100%;
   cursor: pointer;
+  height: 100%;
+  max-width: 100%;
 `
+const imageModalStyle = `
+  display: block;
+  max-height: calc(100% - 0.5rem);
+`
+
+const maxHeightStyle = `
+  max-height: 100%;
+`
+
 const closeButtonStyle = `
   color: white;
 `
@@ -29,10 +39,10 @@ module.exports = (attrs) => {
   return html`
   <div class="modalFadeIn">
     <div style=${darkBackgroundStyle} onclick=${goToAlbum}></div>
-    <div id="imageModal" class="modal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" onclick=${goToAlbum} style="display: block;">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-body">
+    <div id="imageModal" class="modal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" onclick=${goToAlbum} style=${imageModalStyle}>
+      <div class="modal-dialog" style=${maxHeightStyle}>
+        <div class="modal-content" style=${maxHeightStyle}>
+          <div class="modal-body" style="max-height: calc(100% - 0.5rem)">
             <img id="full" style=${imageStyle} onclick=${goToAlbum} src=${attrs.src} />
           </div>
         </div>
