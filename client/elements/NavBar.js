@@ -5,7 +5,7 @@ const html = Tram.html({
 
 const navGrid = `
   display: flex;
-  flex-wrap: no wrap;
+  flex-wrap: nowrap;
   margin-bottom: 0.8em;
 `
 

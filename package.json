@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "lint": "xo",
+    "prestart": "npm run build",
     "start": "node server/main.js",
     "predev": "npm run build",
     "dev": "node server/main.js",
