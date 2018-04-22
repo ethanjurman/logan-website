@@ -1,4 +1,4 @@
-# tram-one-app
+# The Eiferer's Armory Website
 
 ## Developement Instructions
 1. In the root directory, run `npm install` to install all the project dependencies

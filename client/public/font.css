@@ -2,19 +2,20 @@ html * {
   font-family: 'Permanent Marker', cursive;
 }
 
-a {
+.nav-link {
   transition-duration: 0.2s;
+  cursor: pointer;
   opacity: 0.5;
   color: inherit;
   outline: none;
   text-decoration: none;
 }
 
-a:hover {
+.nav-link:hover {
   opacity: 1;
   text-decoration: none;
 }
 
-a:focus {
+.nav-link:focus {
   opacity: 1;
 }

@@ -2,9 +2,10 @@ const Tram = require('tram-one')
 const html = Tram.html()
 
 module.exports = (attrs, children) => {
+  const nav = () => window.history.pushState({}, '', attrs.href)
   return html`
-    <a class="section-header" style=${attrs.style} href=${attrs.href}>
+    <div class="nav-link" style=${attrs.style} onclick=${nav}>
       ${children}
-    </a>
+    </div>
   `
 }

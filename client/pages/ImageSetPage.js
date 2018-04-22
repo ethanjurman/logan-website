@@ -16,6 +16,9 @@ const pageMap = {
 
 const getOrFetchAlbumDOM = (store, actions, params) => {
   const albumId = pageMap[params.albumPage]
+  if (albumId === undefined) {
+    return 'Error: Invalid Page'
+  }
   switch (store.albums.status) {
   case 'NOT_LOADED':
     actions.fetchAlbum(albumId)
