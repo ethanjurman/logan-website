@@ -29,14 +29,9 @@ module.exports = (attrs) => {
   return html`
   <div class="modalFadeIn">
     <div style=${darkBackgroundStyle} onclick=${goToAlbum}></div>
-    <div id="imageModal" class="modal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" style="display: block; padding-right: 17px;">
+    <div id="imageModal" class="modal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" onclick=${goToAlbum} style="display: block;">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick=${goToAlbum}>
-              <span aria-hidden="true" style=${closeButtonStyle}>×</span>
-            </button>
-          </div>
           <div class="modal-body">
             <img id="full" style=${imageStyle} onclick=${goToAlbum} src=${attrs.src} />
           </div>
