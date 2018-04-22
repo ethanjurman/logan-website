@@ -26,3 +26,17 @@
   width: 225px;
   max-height: 500px;
 }
+
+.navMask {
+  transition: all .1s ease-in-out;
+  -webkit-filter: drop-shadow(0px 0px 0px rgba(255,255,255,1));
+  filter: drop-shadow(0px 0px 0px #fff);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0, OffY=0, Color='#fff')";
+  filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0, OffY=0, Color='#fff')"
+}
+.navMask:hover {
+  -webkit-filter: drop-shadow(0px 0px 5px rgba(255,255,255,1));
+  filter: drop-shadow(0px 0px 5px #fff);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0, OffY=0, Color='#fff')";
+  filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0, OffY=0, Color='#fff')"
+}

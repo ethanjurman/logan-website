@@ -10,6 +10,7 @@ const imagesBlockStyle = `
 
 const imageStyle = `
   max-width: 100%;
+  cursor: pointer;
 `
 
 const pageMap = {
