@@ -7,18 +7,17 @@ const containerGrid = `
   font-size: 1.8em;
   display: grid;
   grid-template-columns: 4em auto;
-  grid-template-rows: 2em auto;
+  grid-template-rows: auto auto;
   grid-template-areas:
     "logo header"
     "logo links"
-    "logo blurb";
+    "blurb blurb";
 `
 
 const headerStyle = `
   grid-area: header;
   font-size: 2em;
   margin: 0;
-  white-space: nowrap;
 `
 
 const linksStyle = `
@@ -36,6 +35,7 @@ const imageStyle = `
 const blurbStyle = `
   grid-area: blurb;
   font-size: 0.7em;
+  margin-left: 1em;
 `
 
 module.exports = (attrs) => {
