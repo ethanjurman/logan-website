@@ -1,13 +1,6 @@
 const Tram = require('tram-one')
 const html = Tram.html()
 
-const cropStyle = `
-  object-fit: cover;
-  cursor: pointer;
-  width: 225px;
-  height: 225px;
-`
-
 module.exports = (attrs) => {
   const {imageData: {id}, albumPage} = attrs
 
@@ -16,6 +9,6 @@ module.exports = (attrs) => {
   }
 
   return html`
-    <img classname="dropShadowHover grow" onclick=${openImage} style=${cropStyle} src=${attrs.src} />
+    <img classname="galleryImage dropShadowHover grow" onclick=${openImage} src=${attrs.src} />
   `
 }
