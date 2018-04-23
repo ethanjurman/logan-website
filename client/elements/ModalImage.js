@@ -14,8 +14,8 @@ const imageModalStyle = `
   display: block;
   z-index: 1;
   position: fixed;
-  max-height: calc(100% - 2em);
-  max-width: calc(100% - 2em);
+  max-height: calc(100% - 4em);
+  max-width: calc(100% - 4em);
   top: 0;
   bottom: 0;
   left: 0;
