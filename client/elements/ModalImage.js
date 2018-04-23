@@ -3,20 +3,10 @@ const html = Tram.html()
 
 const imageStyle = `
   cursor: pointer;
-  height: 100%;
-  max-width: 100%;
+  height: 80vh;
 `
 const imageModalStyle = `
   display: block;
-  max-height: calc(100% - 0.5rem);
-`
-
-const maxHeightStyle = `
-  max-height: 100%;
-`
-
-const closeButtonStyle = `
-  color: white;
 `
 
 const darkBackgroundStyle = `
@@ -40,9 +30,9 @@ module.exports = (attrs) => {
   <div class="modalFadeIn">
     <div style=${darkBackgroundStyle} onclick=${goToAlbum}></div>
     <div id="imageModal" class="modal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" onclick=${goToAlbum} style=${imageModalStyle}>
-      <div class="modal-dialog" style=${maxHeightStyle}>
-        <div class="modal-content" style=${maxHeightStyle}>
-          <div class="modal-body" style="max-height: calc(100% - 0.5rem)">
+      <div class="modal-dialog" style="max-width: unset;">
+        <div class="modal-content">
+          <div class="modal-body" style="">
             <img id="full" style=${imageStyle} onclick=${goToAlbum} src=${attrs.src} />
           </div>
         </div>
