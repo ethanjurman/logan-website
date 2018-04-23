@@ -3,10 +3,25 @@ const html = Tram.html()
 
 const imageStyle = `
   cursor: pointer;
-  height: 80vh;
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `
 const imageModalStyle = `
   display: block;
+  z-index: 1;
+  position: fixed;
+  max-height: calc(100% - 2em);
+  max-width: calc(100% - 2em);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  cursor: pointer;
 `
 
 const darkBackgroundStyle = `
@@ -15,7 +30,7 @@ const darkBackgroundStyle = `
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.7);
   overflow: hidden;
 `
 
@@ -27,16 +42,10 @@ module.exports = (attrs) => {
   }
 
   return html`
-  <div class="modalFadeIn">
-    <div style=${darkBackgroundStyle} onclick=${goToAlbum}></div>
-    <div id="imageModal" class="modal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" onclick=${goToAlbum} style=${imageModalStyle}>
-      <div class="modal-dialog" style="max-width: unset;">
-        <div class="modal-content">
-          <div class="modal-body" style="">
-            <img id="full" style=${imageStyle} onclick=${goToAlbum} src=${attrs.src} />
-          </div>
-        </div>
-      </div>
+  <div class="modalFadeIn" onclick=${goToAlbum}>
+    <div style=${darkBackgroundStyle}></div>
+    <div style=${imageModalStyle}>
+      <img id="full" style=${imageStyle} onclick=${goToAlbum} src=${attrs.src} />
     </div>
   </div>
   `
