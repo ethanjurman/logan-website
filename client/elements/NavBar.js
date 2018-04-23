@@ -10,7 +10,7 @@ const navGrid = `
 `
 
 const linkStyle = `
-  padding: 0.4em 0.8em 0em 0.0em;
+  padding: 0.0em 0.8em 0em 0.0em;
 `
 
 module.exports = (attrs) => {

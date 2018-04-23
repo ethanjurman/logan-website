@@ -2,13 +2,13 @@ const Tram = require('tram-one')
 const html = Tram.html()
 
 const linkStyle = `
-  text-decoration: none;
+  white-space: nowrap;
 `
 
 module.exports = ({icon, link}, children) => {
   return html`
     <div>
-      <a href=${link} style=${linkStyle}>
+      <a class="nav-link" href=${link} style=${linkStyle}>
         <i class=${icon} ></i>
         ${children}
       </a>

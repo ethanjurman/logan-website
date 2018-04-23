@@ -35,7 +35,7 @@ const darkBackgroundStyle = `
 `
 
 module.exports = (attrs) => {
-  const {id, albumPage} = attrs
+  const {albumPage} = attrs
 
   const goToAlbum = () => {
     window.history.pushState({}, '', `/images/${albumPage}`)
