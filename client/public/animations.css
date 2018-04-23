@@ -80,3 +80,26 @@
       opacity: 1;
   }
 }
+
+.maskLoading {
+  animation: spinning 3s infinite;
+  animation-timing-function: ease-in;
+  -moz-animation: spinning 3s infinite; /* Firefox */
+  -webkit-animation: spinning 3s infinite; /* Safari and Chrome */
+  -o-animation: spinning 3s infinite; /* Opera */
+}
+
+@keyframes spinning {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(30deg);
+  }
+  30% {
+    transform: rotate(-30deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

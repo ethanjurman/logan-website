@@ -2,6 +2,7 @@ const Tram = require('tram-one')
 const html = Tram.html({
   Image: require('../elements/Image'),
   ModalImage: require('../elements/ModalImage'),
+  LoadingSpinner: require('../elements/LoadingSpinner'),
 })
 
 const imagesBlockStyle = `
@@ -23,17 +24,17 @@ const getOrFetchAlbumDOM = (store, actions, params) => {
   switch (store.albums.status) {
   case 'NOT_LOADED':
     actions.fetchAlbum(albumId)
-    return 'fetching...'
+    return html`<LoadingSpinner />`
   case 'LOADING':
-    return 'loading...'
+    return html`<LoadingSpinner />`
   case 'LOADED':
     if (store.albums.id !== albumId) {
       actions.fetchAlbum(albumId)
-      return 'fetching...'
+      return html`<LoadingSpinner />`
     }
     return store.albums.album.map(image => html`<Image imageData=${image} albumPage=${params.albumPage} src=${image.thumbnail} />`)
   default:
-    return 'Error...'
+    return 'Error... Try refreshing the page or coming back another time.'
   }
 }
 
@@ -48,13 +49,13 @@ const getOrFetchModalImage = (store, actions, params) => {
   switch (store.albums.status) {
   case 'NOT_LOADED':
     actions.fetchAlbum(albumId)
-    return 'fetching...'
+    return html`<LoadingSpinner />`
   case 'LOADING':
-    return 'loading...'
+    return html`<LoadingSpinner />`
   case 'LOADED':
     if (store.albums.id !== albumId) {
       actions.fetchAlbum(albumId)
-      return 'fetching...'
+      return html`<LoadingSpinner />`
     }
     const imageData = store.albums.album.find(image => image.id === imageId)
     return html`
@@ -65,7 +66,7 @@ const getOrFetchModalImage = (store, actions, params) => {
       />
     `
   default:
-    return 'Error...'
+    return 'Error... Try refreshing the page or coming back another time.'
   }
 }
 
