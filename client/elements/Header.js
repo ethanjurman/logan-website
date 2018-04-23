@@ -10,8 +10,7 @@ const containerGrid = `
   grid-template-rows: auto auto;
   grid-template-areas:
     "logo header"
-    "logo links"
-    "blurb blurb";
+    "logo links";
 `
 
 const headerStyle = `
@@ -33,12 +32,6 @@ const imageStyle = `
   cursor: pointer;
 `
 
-const blurbStyle = `
-  grid-area: blurb;
-  font-size: 0.7em;
-  margin-left: 1em;
-`
-
 module.exports = (attrs) => {
   const goToHome = () => window.history.pushState({}, '', '/')
   return html`
@@ -48,11 +41,6 @@ module.exports = (attrs) => {
         The Eiferer's Armory
       </h1>
       <NavBar style=${linksStyle} />
-      <p style=${blurbStyle}>
-        Greetings, I’m Logan! There’s little I enjoy more than creating masks,
-        costumes, props, and good old fashioned monsters! What you’ll see here
-        is just a small sample of my ever-growing collection.
-      </p>
     </h1>
   `
 }
