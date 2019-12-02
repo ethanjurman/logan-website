@@ -20,6 +20,7 @@ module.exports = (attrs) => {
       <NavLink style=${linkStyle} href="/images/makeup">Makeup</NavLink>
       <NavLink style=${linkStyle} href="/images/costumes">Costumes</NavLink>
       <NavLink style=${linkStyle} href="/images/props">Props</NavLink>
+      <a class="nav-link" style=${linkStyle} href="https://www.facebook.com/VerbotenEiferer/">Facebook</a>
     </div>
   `
 }

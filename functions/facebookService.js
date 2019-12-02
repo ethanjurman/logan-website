@@ -4,7 +4,7 @@ const FB = require('fb')
 // page id for The Eiferer's Armory
 const pageId = '346900572414287'
 
-const fetchAlbum = (token, album, callback, error) => {
+const fetchAlbum = (token, album, callback, errorCallback) => {
   // these are the target height for the images
   const resolutions = {
     thumbnail: 480,
@@ -39,10 +39,11 @@ const fetchAlbum = (token, album, callback, error) => {
     const album = JSON.parse(response[0].body)
     const photos = JSON.parse(response[1].body)
     if (!response || response.error || response[0].code !== 200 || response[1].code !== 200) {
-      return error('Error: Failed to parse Facebook data')
+      console.error(response)
+      return errorCallback({error: 'Error: Failed to parse Facebook data'})
     }
     if (album.from.id !== pageId) {
-      return error({error: 'album owner id did not match expected value'})
+      return errorCallback({error: 'album owner id did not match expected value'})
     }
     const images = photos
       .data

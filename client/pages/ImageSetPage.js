@@ -3,6 +3,7 @@ const html = Tram.html({
   Image: require('../elements/Image'),
   ModalImage: require('../elements/ModalImage'),
   LoadingSpinner: require('../elements/LoadingSpinner'),
+  ErrorBlurb: require('../elements/ErrorBlurb')
 })
 
 const imagesBlockStyle = `
@@ -34,7 +35,7 @@ const getOrFetchAlbumDOM = (store, actions, params) => {
     }
     return store.albums.album.map(image => html`<Image imageData=${image} albumPage=${params.albumPage} src=${image.thumbnail} />`)
   default:
-    return 'Error... Try refreshing the page or coming back another time.'
+    return html`<ErrorBlurb pageId=${albumId} />`
   }
 }
 
@@ -59,7 +60,7 @@ const getOrFetchModalImage = (store, actions, params) => {
     }
     const imageData = store.albums.album.find(image => image.id === imageId)
     return html`
-      <ModalImage 
+      <ModalImage
         imageData=${imageData}
         albumPage=${params.albumPage}
         src=${imageData.full}
@@ -71,7 +72,7 @@ const getOrFetchModalImage = (store, actions, params) => {
 }
 
 module.exports = (store, actions, params) => {
-  let modalImage = null;
+  let modalImage = null
   if (params.imageId) {
     modalImage = html`<ModalImage id=${params.imageId} albumPage=${params.albumPage} />`
   }

@@ -8,5 +8,5 @@ module.exports = {
       })
     return Object.assign({}, state, {status: 'LOADING', id: id})
   },
-  setAlbum: (state, {data, id}) => Object.assign({}, state, {album: data, id: id, status: 'LOADED'})
+  setAlbum: (state, {data, id}) => Object.assign({}, state, {album: data, id: id, status: data.error ? 'ERRORED' : 'LOADED'})
 }

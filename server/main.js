@@ -7,7 +7,7 @@ const app = express()
 app.use(express.static(path.join(__dirname, '../client/dist')))
 
 app.get('/getAlbum', (req, res) => {
-  facebookService.fetchAlbum(token, req.query.album, response => res.send(response), error => res.send(error))
+  facebookService.fetchAlbum(token, req.query.album, response => res.send(response), error => res.status(500).send(error))
 })
 
 app.use((req, res) => res.sendFile(path.join(__dirname, '../client/dist/index.html')))
